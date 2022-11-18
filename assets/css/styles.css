@@ -1010,6 +1010,19 @@ img{
     background-color: var(--text-color-light);
 }
 
+/*==================== SCROLL ANIMATION ====================*/
+.reveal {
+    position: relative;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 2s all ease;
+}
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
 /*==================== MEDIA QUERIES ====================*/
 /* For small devices */
 @media screen and (max-width: 350px){
