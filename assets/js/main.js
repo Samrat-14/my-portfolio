@@ -54,7 +54,7 @@ function reveal() {
     for (var i = 0; i < reveals.length; i++) {
         var windowHeight = window.innerHeight;
         var elementTop = reveals[i].getBoundingClientRect().top;
-        var elementVisible = 100;
+        var elementVisible = 50;
         if (elementTop < windowHeight - elementVisible) {
             reveals[i].classList.add("active");
         } else {
@@ -199,42 +199,26 @@ themeButton.addEventListener('click', () => {
 })
 
 /*==================== COLOR THEME ====================*/ 
-const palette = ['purple', 'green', 'blue', 'pink'];
+const palette = ['styles', 'blue', 'green', 'yellow', 'orange', 'red', 'pink']; // styles means purple color
 
-const selectedColorTheme = localStorage.getItem('selected-color-theme');
-const selectedIndex = localStorage.getItem('selected-index');
+let selectedIndex = localStorage.getItem('selected-index');
 
-if(selectedColorTheme == null) {
-    setTheme('purple');
-} else{
-    setTheme(selectedColorTheme);
+if(selectedIndex === null) {
+    selectedIndex = 0;
 }
+
+setTheme(palette[selectedIndex]);
 
 const theme = document.getElementById('color-palette');
 
 theme.addEventListener('click', () => {
-    let mode = palette[index];
+    selectedIndex = (selectedIndex + 1) % palette.length;
+    let mode = palette[selectedIndex];
     setTheme(mode);
 })
 
 function setTheme(mode){
-    if(mode == 'purple'){
-        document.getElementById('theme-style').href = "assets/css/styles.css";
-        index = 1;
-    }
-    if(mode == 'green'){
-        document.getElementById('theme-style').href = "assets/css/green.css";
-        index = 2;
-    }
-    if(mode == 'blue'){
-        document.getElementById('theme-style').href = "assets/css/blue.css";
-        index = 3;
-    }
-    if(mode == 'pink'){
-        document.getElementById('theme-style').href = "assets/css/pink.css";
-        index = 0;
-    }
+    document.getElementById('theme-style').href = `assets/css/${mode}.css`;
 
-    localStorage.setItem('selected-color-theme', mode);
-    localStorage.setItem('selected-index', index);
+    localStorage.setItem('selected-index', selectedIndex);
 }
