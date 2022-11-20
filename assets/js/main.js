@@ -178,22 +178,25 @@ window.addEventListener('scroll', scrollUp);
 /*==================== DARK LIGHT THEME ====================*/ 
 const themeButton = document.getElementById('theme-button');
 const darkTheme = 'dark-theme';
-const iconTheme = 'uil-sun';
+const iconThemeLight = 'uil-sun';
+const iconThemeDark = 'uil-moon';
 
 const selectedTheme = localStorage.getItem('selected-theme');
 const selectedIcon = localStorage.getItem('selected-icon');
 
 const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light';
-const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'uil-moon' : 'uil-sun';
+const getCurrentIcon = () => themeButton.classList.contains(iconThemeLight) ? 'uil-sun' : 'uil-moon';
 
 if (selectedTheme) {
-  document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme);
-  themeButton.classList[selectedIcon === 'uil-moon' ? 'add' : 'remove'](iconTheme);
+    document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme);
+    themeButton.classList[selectedIcon === 'uil-sun' ? 'add' : 'remove'](iconThemeLight);
+    themeButton.classList[selectedIcon === 'uil-sun' ? 'remove' : 'add'](iconThemeDark);
 }
 
 themeButton.addEventListener('click', () => {
     document.body.classList.toggle(darkTheme);
-    themeButton.classList.toggle(iconTheme);
+    themeButton.classList.toggle(iconThemeLight);
+    themeButton.classList.toggle(iconThemeDark);
     localStorage.setItem('selected-theme', getCurrentTheme());
     localStorage.setItem('selected-icon', getCurrentIcon());
 })
