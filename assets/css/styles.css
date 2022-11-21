@@ -1,5 +1,6 @@
 /*==================== GOOGLE FONTS ====================*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arizonia:wght@400;500;600&display=swap');
 
 /*==================== VARIABLES CSS ====================*/
 :root {
@@ -25,6 +26,7 @@
 
     /*========== Font and typography ==========*/
     --body-font: 'Poppins', sans-serif;
+    --cursive-font: 'Arizonia', sans-serif;
 
     /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
     --big-font-size: 2rem;
@@ -139,11 +141,12 @@ img{
 /*==================== REUSABLE CSS CLASSES ====================*/
 .section{
     padding: 2rem 0 4rem;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .section__title{
     font-size: var(--h1-font-size);
+    margin-top: var(--mb-3);
 }
 
 .section__subtitle{
@@ -185,6 +188,11 @@ img{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.nav__logo {
+    font-family: var(--cursive-font);
+    font-size: 1.5rem;
 }
 
 .nav__logo,
@@ -457,7 +465,7 @@ img{
 .skills__header{
     display: flex;
     align-items: center;
-    margin-bottom: var(--mb-2-5);
+    margin-bottom: var(--mb-2);
     cursor: pointer;
 }
 
@@ -486,70 +494,24 @@ img{
 }
 
 .skills__list{
-    row-gap: 1.5rem;
     padding-left: 2.7rem;
+    margin: 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .skills__titles{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: var(--mb-0-5);
+    background-color: var(--first-color);
+    padding: 0.1rem 0.6rem;
+    width:fit-content;
+    border-radius: 0.5rem;
+    margin: 0.5rem 0.5rem;
 }
 
 .skills__name{
     font-size: var(--normal-font-size);
     font-weight: var(--font-medium);
-}
-
-.skills__bar,
-.skills__percentage{
-    height: 5px;
-    border-radius: .25rem;
-}
-
-.skills__bar{
-    background-color: var(--first-color-lighter);
-}
-
-.skills__percentage{
-    display: block;
-    background-color: var(--first-color);
-}
-
-.skills__html{
-    width: 90%;
-}
-.skills__css{
-    width: 85%;
-}
-.skills__js{
-    width: 80%;
-}
-.skills__react{
-    width: 60%;
-}
-
-.skills__django{
-    width: 80%;
-}
-.skills__node{
-    width: 60%;
-}
-.skills__mysql{
-    width: 90%;
-}
-.skills__mongodb{
-    width: 65%;
-}
-
-.skills__figma{
-    width: 90%;
-}
-.skills__sketch{
-    width: 85%;
-}
-.skills__illustrator{
-    width: 75%;
+    color: #fff;
 }
 
 .skills__close .skills__list{
@@ -928,7 +890,8 @@ img{
 }
 
 .footer__title{
-    font-size: var(--h1-font-size);
+    font-family: var(--cursive-font);
+    font-size: 3rem;
     margin-bottom: var(--mb-0-25);
 }
 
